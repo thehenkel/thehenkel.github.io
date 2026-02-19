@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Variables ─────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #faf9f6;
+      --fg:       #1a1a18;
+      --mid:      #6b6b65;
+      --accent:   #2a4a8a;
+      --rule:     #d8d6cf;
+      --serif:    'EB Garamond', Georgia, serif;
+      --mono:     'DM Mono', monospace;
+      --nav-w:    240px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ─── Sidebar nav ───────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: var(--nav-w);
+      height: 100vh;
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      background: var(--bg);
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-size: 0.85rem;
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+      color: var(--mid);
+      margin-bottom: 1.5rem;
+    }
+
+    nav a {
+      font-size: 0.9rem;
+      font-family: var(--mono);
+      color: var(--mid);
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--fg); text-decoration: none; }
+
+    /* ─── Main layout ───────────────────────────────────────── */
+    main {
+      margin-left: var(--nav-w);
+      max-width: 780px;
+      padding: 4rem 3rem 6rem;
+    }
+
+    /* ─── Hero / About ──────────────────────────────────────── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 180px;
+      gap: 3rem;
+      align-items: start;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
+    }
+
+    .hero-text .role {
+      font-size: 1rem;
+      color: var(--mid);
+      margin-bottom: 1.2rem;
+      font-style: italic;
+    }
+
+    .affiliations {
+      font-size: 0.88rem;
+      font-family: var(--mono);
+      color: var(--mid);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      max-width: 560px;
+      margin-bottom: 1.2rem;
+      color: #2e2e2a;
+    }
+
+    .cv-link {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.35rem 0.9rem;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cv-link:hover {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      display: block;
+      filter: grayscale(15%);
+      border: 1px solid var(--rule);
+    }
+
+    /* ─── Sections ──────────────────────────────────────────── */
+    section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+    section:last-child { border-bottom: none; }
+
+    .section-num {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-sub {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--mid);
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    section h2 {
+      font-size: 1.9rem;
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.4rem;
+    }
+
+    /* ─── News banners ──────────────────────────────────────── */
+    .news {
+      background: #eef2f8;
+      border-left: 3px solid var(--accent);
+      padding: 0.7rem 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.92rem;
+    }
+
+    /* ─── Paper entries ─────────────────────────────────────── */
+    .paper-list { margin-top: 2.5rem; }
+
+    .paper-group-title {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .paper {
+      margin-bottom: 2.2rem;
+    }
+
+    .paper h3 {
+      font-size: 1.05rem;
+      font-weight: 500;
+      margin-bottom: 0.2rem;
+    }
+
+    .paper .coauthors {
+      font-size: 0.88rem;
+      color: var(--mid);
+      font-style: italic;
+      margin-bottom: 0.2rem;
+    }
+
+    .paper .venue {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--mid);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.02em;
+    }
+
+    .paper-links { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .paper-links a {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+      list-style: none;
+      margin-top: 0.3rem;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary::before { content: '+ '; }
+    details[open] summary::before { content: '− '; }
+
+    details p {
+      font-size: 0.93rem;
+      color: #3a3a35;
+      margin-top: 0.6rem;
+      padding-left: 0.8rem;
+      border-left: 2px solid var(--rule);
+      line-height: 1.65;
+    }
+
+    /* ─── Talks ─────────────────────────────────────────────── */
+    .talks-block { margin-bottom: 2rem; }
+    .talks-block h3 {
+      font-size: 1rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    .talks-block p { font-size: 0.95rem; color: #3a3a35; }
+
+    /* ─── Teaching ──────────────────────────────────────────── */
+    .teaching-block { margin-bottom: 2rem; }
+    .teaching-block .inst {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+    .teaching-block ul {
+      list-style: none;
+      font-size: 0.96rem;
+    }
+    .teaching-block ul li { padding: 0.15rem 0; }
+    .teaching-block ul li::before { content: '→ '; color: var(--mid); }
+
+    /* ─── Contact ───────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      font-size: 0.96rem;
+    }
+    .contact-grid h3 {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--mid);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── Mobile ─────────────────────────────────────────────── */
+    @media (max-width: 750px) {
+      :root { --nav-w: 0px; }
+      nav {
+        position: static;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid var(--rule);
+        padding: 1rem 1.2rem;
+        gap: 1rem;
+      }
+      .nav-name { margin-bottom: 0; }
+      main { padding: 2rem 1.2rem 4rem; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { display: none; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─── Sidebar Navigation ──────────────────────────────────── -->
+<nav>
+  <div class="nav-name">Y. Name</div>
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#talks">Talks</a>
+  <a href="#teaching">Teaching</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- ─── Main Content ────────────────────────────────────────── -->
+<main>
+
+  <!-- About -->
+  <section id="about">
+    <div class="hero">
+      <div class="hero-text">
+        <h1>Your Name</h1>
+        <div class="role">Postdoctoral Researcher in Economics</div>
+        <div class="affiliations">
+          Your University<br>
+          Research Institute A<br>
+          Research Institute B
+        </div>
+        <p>
+          I am a postdoctoral researcher at [Department], [University]. My primary research
+          interests are in [Field], with a focus on [Sub-topics]. I am affiliated with
+          [Institute/Group].
+        </p>
+        <a class="cv-link" href="your-cv.pdf" target="_blank">Curriculum Vitae</a>
+      </div>
+      <div class="hero-photo">
+        <!-- Replace with your photo file -->
+        <img src="photo.jpg" alt="Your Name" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section id="research">
+    <div class="section-num">01</div>
+    <h2>Research</h2>
+    <div class="section-sub">Field A · Field B · Field C</div>
+
+    <!-- News items -->
+    <div class="news">
+      <strong>News</strong> — <em>"Paper Title X"</em> — Revise &amp; Resubmit at <em>Journal Name</em>
+    </div>
+    <div class="news">
+      <strong>News</strong> — <em>"Paper Title Y"</em> — Conditionally Accepted at <em>Journal Name</em>
+    </div>
+
+    <div class="paper-list">
+
+      <!-- Job Market Paper -->
+      <div class="paper-group-title">Job Market Paper</div>
+      <div class="paper">
+        <h3><a href="#">Your Job Market Paper Title</a></h3>
+        <div class="coauthors">With Co-Author One and Co-Author Two</div>
+        <div class="paper-links">
+          <a href="#">Read the paper →</a>
+        </div>
+        <details>
+          <summary>Abstract</summary>
+          <p>
+            This paper studies [topic]. We use [method] to estimate [effect]. Our findings show
+            that [result]. These results suggest [implication].
+          </p>
+        </details>
+      </div>
+
+      <!-- Publications -->
+      <div class="paper-group-title">Publications</div>
+
+      <div class="paper">
+        <h3><a href="#">Publication Title One</a></h3>
+        <div class="coauthors">With Co-Author A and Co-Author B</div>
+        <div class="venue">Journal Name · 2023</div>
+        <div class="paper-links">
+          <a href="#">Published version</a>
+          <a href="#">Working paper</a>
+        </div>
+        <details>
+          <summary>Abstract</summary>
+          <p>
+            This paper examines [topic]. Using [data] and [method], we find [result].
+            The effects are particularly pronounced for [subgroup].
+          </p>
+        </details>
+      </div>
+
+      <div class="paper">
+        <h3><a href="#">Publication Title Two</a></h3>
+        <div class="venue">Journal Name · 2021</div>
+        <div class="paper-links">
+          <a href="#">Published version</a>
+        </div>
+        <details>
+          <summary>Abstract</summary>
+          <p>
+            [Topic] has a major impact on [outcome]. I exploit [natural experiment] to assess
+            [effect]. Using [data], I demonstrate that [result].
+          </p>
+        </details>
+      </div>
+
+      <!-- Working Papers -->
+      <div class="paper-group-title">Working Papers</div>
+
+      <div class="paper">
+        <h3>Working Paper Title One</h3>
+        <div class="coauthors">With Co-Author C and Co-Author D</div>
+        <div class="venue">R&amp;R — Journal Name</div>
+        <div class="paper-links">
+          <a href="#">IZA Discussion Paper</a>
+          <a href="#">Email for draft</a>
+        </div>
+        <details>
+          <summary>Abstract</summary>
+          <p>
+            [Abstract of working paper.]
+          </p>
+        </details>
+      </div>
+
+      <!-- Work in Progress -->
+      <div class="paper-group-title">Work in Progress</div>
+
+      <div class="paper">
+        <h3>Work-in-Progress Title</h3>
+        <div class="coauthors">With Co-Author E</div>
+        <div class="venue">Draft in preparation</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Talks -->
+  <section id="talks">
+    <div class="section-num">02</div>
+    <h2>Talks &amp; Conferences</h2>
+
+    <div class="talks-block">
+      <h3>Invited Talks</h3>
+      <p>
+        University A (scheduled); University B 2024; University C 2023; University D 2022
+      </p>
+    </div>
+
+    <div class="talks-block">
+      <h3>Conference Presentations</h3>
+      <p><strong>2024</strong><br>Conference A, City; Conference B, City; Conference C, City</p>
+      <p><strong>2023</strong><br>Conference D, City; Conference E, City</p>
+      <p><strong>2022</strong><br>Conference F, City</p>
+    </div>
+  </section>
+
+  <!-- Teaching -->
+  <section id="teaching">
+    <div class="section-num">03</div>
+    <h2>Teaching</h2>
+
+    <div class="teaching-block">
+      <div class="inst">Your University · 2021–Present</div>
+      <ul>
+        <li>Course Title A — Lecture + Seminar [Graduate]</li>
+        <li>Course Title B — Practical Sessions [Undergraduate]</li>
+      </ul>
+    </div>
+
+    <div class="teaching-block">
+      <div class="inst">Previous University · 2016–2020</div>
+      <ul>
+        <li>Course Title C — Practical Sessions [Graduate]</li>
+        <li>Course Title D — Seminar [Undergraduate]</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <br>
+    <div class="contact-grid">
+      <div>
+        <h3>Email</h3>
+        <p>yourname[at]university.edu</p>
+      </div>
+      <div>
+        <h3>Address</h3>
+        <p>
+          Department of [X]<br>
+          University Name<br>
+          Street Address<br>
+          City, Country
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>
