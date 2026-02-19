@@ -73,13 +73,14 @@ main {
   margin: 56px auto 0;
   max-width: 780px;
   padding: 4rem 3rem 6rem;
-  text-align: center;
+  text-align: left;   /* center → left */
 }
     /* ─── Hero / About ──────────────────────────────────────── */
-   .hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 180px;
+  gap: 3rem;
+  align-items: start;
   padding-bottom: 4rem;
   border-bottom: 1px solid var(--rule);
 }
@@ -109,10 +110,9 @@ main {
 .hero-text p {
   font-size: 1rem;
   max-width: 560px;
-  margin: 0 auto 1.2rem;   /* auto links/rechts zentriert den Absatz */
+  margin: 0 0 1.2rem 0;
   color: #2e2e2a;
 }
-
     .cv-link {
       display: inline-block;
       font-family: var(--mono);
