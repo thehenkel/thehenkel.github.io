@@ -10,15 +10,15 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-  --serif: 'Lora', Georgia, serif;
-  --mono:  'DM Mono', monospace;
-      --bg:     #f8f9fb;
-      --fg:     #00296b;
-      --mid:    #00509d;
-      --accent: #83b0e1;
-      --rule:   #00296b;
-    }
+ :root {
+  --serif:  'Lora', Georgia, serif;
+  --mono:   'DM Mono', monospace;
+  --bg:     #f0ece2;   /* helles Beige — Hintergrund */
+  --fg:     #596e79;   /* Blau-Grau — Haupttext */
+  --mid:    #c7b198;   /* Warm-Tan — Nebentext */
+  --accent: #596e79;   /* Blau-Grau — Links & Akzente */
+  --rule:   #dfd3c3;   /* Mittleres Beige — Trennlinien */
+}
 
     html { scroll-behavior: smooth; }
     body {
@@ -227,8 +227,8 @@ nav a {
 
     /* ─── FIX 4: Contact — blauer Kasten ────────────────────── */
     .contact-box {
-      background: #00296b;
-      color: #f8f9fb;
+      background: #596e79;
+      color: #dfd3c3;;
       border-radius: 4px;
       padding: 2.5rem 3rem;
       margin-top: 1.5rem;
@@ -246,7 +246,8 @@ nav a {
       margin-bottom: 0.5rem;
     }
 
-    .contact-box p { color: #f8f9fb; }
+    .contact-box p { color: #f0ece2; }
+ 
 
     /* ─── Mobile ────────────────────────────────────────────── */
     @media (max-width: 750px) {
