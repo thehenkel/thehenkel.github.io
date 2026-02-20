@@ -225,16 +225,14 @@ nav a {
       letter-spacing: 0.04em;
     }
     .teaching-block ul { list-style: none; font-size: 0.96rem; }
-    .teaching-block ul li { padding: 0.15rem 0; }
+    .teaching-block ul li::before { content: '→ '; color: #596e79; }
 .teaching-block ul li::before { content: '→ '; color: var(--mid); }
 
-/* NEU — hier einfügen */
 .level {
   font-size: 0.78rem;
-  color: var(--mid);
+  color: #596e79;   /* war: var(--mid) */
   margin-left: 0.3rem;
 }
-
     /* ─── FIX 4: Contact — blauer Kasten ────────────────────── */
     .contact-box {
       background: #596e79;
@@ -320,6 +318,7 @@ nav a {
 
     <div class="paper">
       <h3>Migration Opportunities and Human Capital Development</h3>
+      <div class="coauthors">Single Author</div>
       <div class="venue">Draft in preparation</div>
     </div>
 
