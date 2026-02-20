@@ -10,141 +10,139 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
- :root {
-  --serif:  'Lora', Georgia, serif;
-  --mono:   'DM Mono', monospace;
-  --bg:     #eeeeee;   /* helles Beige — Hintergrund */
-  --fg:     #393e46;   /* Blau-Grau — Haupttext */
-  --mid:    #b55400;   /* Warm-Tan — Nebentext */
-  --accent: #596e79;   /* Blau-Grau — Links & Akzente */
-  --rule:   #dfd3c3;   /* Mittleres Beige — Trennlinien */
-}
+    :root {
+      --serif:  'Lora', Georgia, serif;
+      --mono:   'DM Mono', monospace;
+      --bg:     #eeeeee;
+      --fg:     #393e46;
+      --mid:    #b55400;
+      --accent: #596e79;
+      --rule:   #dfd3c3;
+    }
 
     html { scroll-behavior: smooth; }
     body {
       background: var(--bg);
       color: var(--fg);
       font-family: var(--serif);
-      font-size: 18px;
-      line-height: 1.7;
+      font-size: 22px;          /* war: 18px */
+      line-height: 1.8;
     }
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
     /* ─── Nav ───────────────────────────────────────────────── */
-nav {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 56px;
-  border-bottom: 1px solid var(--rule);
-  background: var(--bg);
-  z-index: 100;
-}
+    nav {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 68px;             /* war: 56px */
+      border-bottom: 1px solid var(--rule);
+      background: var(--bg);
+      z-index: 100;
+    }
 
-.nav-inner {
-  max-width: 780px;
-  margin: 0 auto;
-  padding: 0 3rem;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 1fr 180px;
-  gap: 3rem;
-  align-items: center;
-}
+    .nav-inner {
+      max-width: 100%;          /* war: 780px — jetzt volle Breite */
+      margin: 0 auto;
+      padding: 0 5rem;          /* war: 3rem */
+      height: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: center;
+    }
 
-.nav-links {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: flex-end;
-}
-.nav-name {
-  font-size: 0.85rem;
-  font-family: var(--serif);
-  letter-spacing: 0.05em;
-  color: var(--mid);
-  margin-right: auto;   /* schiebt Name nach links, Links bleiben mittig */
-}
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;              /* war: 1rem */
+      justify-content: flex-end;
+    }
 
-nav a {
-  font-size: 0.9rem;
-  font-family: var(--serif);   /* mono → serif */
-  color: var(--mid);
-  letter-spacing: 0.02em;
-  padding: 0.2rem 0;
-  transition: color 0.2s;
-}
+    .nav-name {
+      font-size: 1.1rem;        /* war: 0.85rem */
+      font-family: var(--serif);
+      letter-spacing: 0.05em;
+      color: var(--mid);
+    }
+
+    nav a {
+      font-size: 1.1rem;        /* war: 0.9rem */
+      font-family: var(--serif);
+      color: var(--mid);
+      letter-spacing: 0.02em;
+      padding: 0.2rem 0;
+      transition: color 0.2s;
+    }
     nav a:hover { color: var(--fg); text-decoration: none; }
 
     /* ─── Main ──────────────────────────────────────────────── */
     main {
-      margin: 56px auto 0;
-      max-width: 780px;
-      padding: 4rem 3rem 6rem;
+      margin: 68px auto 0;
+      max-width: 100%;          /* war: 780px */
+      padding: 5rem 8rem 8rem;  /* war: 4rem 3rem 6rem */
       text-align: left;
     }
 
-    /* ─── FIX 2: About-section ohne eigene border ───────────── */
-   #about {
-  padding: 4rem 0 0 0;   /* kein padding-bottom mehr */
-  border-bottom: none;
-}
+    /* ─── About ─────────────────────────────────────────────── */
+    #about {
+      padding: 5rem 0 0 0;
+      border-bottom: none;
+    }
 
-    /* ─── FIX 1: Hero Grid — Foto rechts neben Text ─────────── */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 180px;
-      gap: 3rem;
+      grid-template-columns: 1fr 280px;   /* war: 180px */
+      gap: 5rem;
       align-items: start;
-      padding-bottom: 4rem;
+      padding-bottom: 5rem;
       border-bottom: 1px solid var(--rule);
     }
 
     .hero-text h1 {
-      font-size: 2.4rem;
+      font-size: 3.5rem;        /* war: 2.4rem */
       font-weight: 400;
       letter-spacing: -0.02em;
-      margin-bottom: 0.3rem;
-      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      line-height: 1.15;
     }
 
     .hero-text .role {
-      font-size: 1rem;
+      font-size: 1.3rem;        /* war: 1rem */
       color: #596e79;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
       font-style: italic;
     }
 
     .affiliations {
-      font-size: 0.88rem;
+      font-size: 1.05rem;       /* war: 0.88rem */
       font-family: var(--serif);
       color: var(--mid);
-      line-height: 2;
-      margin-bottom: 1.5rem;
+      line-height: 2.2;
+      margin-bottom: 1.8rem;
     }
 
-    /* FIX 3: About-Text dunkelblau */
     .hero-text p {
-  font-size: 1rem;
-  max-width: 560px;
-  margin: 0 0 1.2rem 0;
-  color: var(--fg);
-  text-align: justify;   /* neu */
-}
+      font-size: 1.15rem;       /* war: 1rem */
+      max-width: 720px;
+      margin: 0 0 1.5rem 0;
+      color: var(--fg);
+      text-align: justify;
+    }
 
-.cv-link {
-  display: inline-block;
-  font-family: var(--serif);
-  font-size: 1rem;           /* war: 0.82rem */
-  color: var(--fg);
-  border: 1px solid var(--mid);
-  padding: 0.5rem 1.2rem;    /* etwas mehr padding */
-  border-radius: 3px;
-  letter-spacing: 0.04em;
-  transition: background 0.2s, color 0.2s;
-}
+    .cv-link {
+      display: inline-block;
+      font-family: var(--serif);
+      font-size: 1.1rem;        /* war: 1rem */
+      color: var(--fg);
+      border: 1px solid var(--mid);
+      padding: 0.6rem 1.6rem;   /* war: 0.5rem 1.2rem */
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+    }
     .cv-link:hover {
       background: var(--rule);
       color: #fff;
@@ -159,12 +157,12 @@ nav a {
     }
 
     /* ─── Sections ──────────────────────────────────────────── */
-    section { padding: 4rem 0; border-bottom: 1px solid var(--rule); }
+    section { padding: 5rem 0; border-bottom: 1px solid var(--rule); }
     section:last-child { border-bottom: none; }
 
     .section-num {
       font-family: var(--serif);
-      font-size: 0.75rem;
+      font-size: 0.95rem;       /* war: 0.75rem */
       letter-spacing: 0.1em;
       color: var(--mid);
       margin-bottom: 0.6rem;
@@ -172,109 +170,111 @@ nav a {
 
     .section-sub {
       font-family: var(--serif);
-      font-size: 0.8rem;
+      font-size: 1rem;          /* war: 0.8rem */
       color: var(--mid);
-      margin-bottom: 2.5rem;
+      margin-bottom: 3rem;
       letter-spacing: 0.04em;
     }
 
     section h2 {
-      font-size: 1.9rem;
+      font-size: 2.6rem;        /* war: 1.9rem */
       font-weight: 400;
       letter-spacing: -0.02em;
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     /* ─── Papers ────────────────────────────────────────────── */
     .paper-group-title {
       font-family: var(--serif);
-      font-size: 0.78rem;
+      font-size: 1rem;          /* war: 0.78rem */
       letter-spacing: 0.1em;
-      color: #596e79; 
+      color: #596e79;
       text-transform: uppercase;
       border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.4rem;
-      margin-bottom: 1.5rem;
-      margin-top: 2.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+      margin-top: 3rem;
     }
 
-    .paper { margin-bottom: 2.2rem; }
+    .paper { margin-bottom: 2.8rem; }
 
     .paper h3 {
-      font-size: 1.05rem;
+      font-size: 1.3rem;        /* war: 1.05rem */
       font-weight: 500;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
     .paper .coauthors {
-      font-size: 0.88rem;
+      font-size: 1.05rem;       /* war: 0.88rem */
       color: var(--mid);
       font-style: italic;
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
-.paper .venue {
-  display: inline-block;
-  border: 1px solid var(--mid);
-  padding: 0.35rem 0.9rem;
-  border-radius: 3px;
-  font-size: 0.82rem;
-  color: #596e79;   /* neu */
-}
-    
+    .paper .venue {
+      display: inline-block;
+      border: 1px solid var(--mid);
+      padding: 0.4rem 1rem;
+      border-radius: 3px;
+      font-size: 1rem;          /* war: 0.82rem */
+      color: #596e79;
+    }
+
     /* ─── Talks ─────────────────────────────────────────────── */
-    .talks-block { margin-bottom: 2rem; }
-    .talks-block p { font-size: 0.95rem; color: var(--fg); }
+    .talks-block { margin-bottom: 2.5rem; }
+    .talks-block p { font-size: 1.15rem; color: var(--fg); }
 
     /* ─── Teaching ──────────────────────────────────────────── */
-    .teaching-block { margin-bottom: 2rem; }
+    .teaching-block { margin-bottom: 2.5rem; }
     .teaching-block .inst {
       font-family: var(--serif);
-      font-size: 0.8rem;
+      font-size: 1rem;          /* war: 0.8rem */
       color: var(--mid);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
       letter-spacing: 0.04em;
     }
-    .teaching-block ul { list-style: none; font-size: 0.96rem; }
-    .teaching-block ul li::before { content: '→ '; color: #596e79; }
-.teaching-block ul li::before { content: '→ '; color: var(--mid); }
+    .teaching-block ul { list-style: none; font-size: 1.15rem; }
+    .teaching-block ul li { padding: 0.25rem 0; }
+    .teaching-block ul li::before { content: '→ '; color: var(--mid); }
 
-.level {
-  font-size: 0.78rem;
-  color: #596e79;   /* war: var(--mid) */
-  margin-left: 0.3rem;
-}
-    /* ─── FIX 4: Contact — blauer Kasten ────────────────────── */
+    .level {
+      font-size: 0.95rem;       /* war: 0.78rem */
+      color: #596e79;
+      margin-left: 0.3rem;
+    }
+
+    /* ─── Contact Box ───────────────────────────────────────── */
     .contact-box {
       background: #596e79;
       color: #eeeeee;
       border-radius: 4px;
-      padding: 2.5rem 3rem;
-      margin-top: 1.5rem;
+      padding: 3rem 4rem;       /* war: 2.5rem 3rem */
+      margin-top: 2rem;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      font-size: 0.96rem;
+      gap: 3rem;
+      font-size: 1.1rem;        /* war: 0.96rem */
     }
 
     .contact-box h3 {
       font-family: var(--serif);
-      font-size: 0.78rem;
+      font-size: 1rem;          /* war: 0.78rem */
       letter-spacing: 0.08em;
       color: var(--bg);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
- .contact-box p { color: var(--bg); }   
- 
+    .contact-box p { color: var(--bg); }
 
     /* ─── Mobile ────────────────────────────────────────────── */
-    @media (max-width: 750px) {
-      nav { height: auto; flex-wrap: wrap; padding: 1rem 1.2rem; gap: 1rem; }
-      main { padding: 2rem 1.2rem 4rem; }
+    @media (max-width: 900px) {
+      nav { height: auto; }
+      .nav-inner { padding: 1rem 2rem; grid-template-columns: 1fr; gap: 0.5rem; height: auto; }
+      .nav-links { justify-content: flex-start; flex-wrap: wrap; gap: 1rem; }
+      main { padding: 2rem 2rem 4rem; }
       .hero { grid-template-columns: 1fr; }
       .hero-photo { display: none; }
-      .contact-box { grid-template-columns: 1fr; padding: 1.5rem; }
+      .contact-box { grid-template-columns: 1fr; padding: 2rem; }
     }
   </style>
 </head>
@@ -353,18 +353,18 @@ nav a {
     <div class="section-num">03</div>
     <h2>Teaching</h2>
     <div class="teaching-block">
-  <div class="inst">Universität Potsdam · 2022–Present</div>
-  <ul>
-    <li>
-      Introduction to Economics
-      <span class="level">[Undergraduate]</span>
-    </li>
-    <li>
-      Education Economics
-      <span class="level">[Undergraduate]</span>
-    </li>
-  </ul>
-</div>
+      <div class="inst">Universität Potsdam · 2022–Present</div>
+      <ul>
+        <li>
+          Introduction to Economics
+          <span class="level">[Undergraduate]</span>
+        </li>
+        <li>
+          Education Economics
+          <span class="level">[Undergraduate]</span>
+        </li>
+      </ul>
+    </div>
   </section>
 
   <!-- Contact -->
