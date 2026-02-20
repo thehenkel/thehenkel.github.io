@@ -122,13 +122,13 @@ nav a {
   text-align: justify;   /* neu */
 }
 
-   .cv-link {
+.cv-link {
   display: inline-block;
   font-family: var(--serif);
-  font-size: 0.82rem;
+  font-size: 1rem;           /* war: 0.82rem */
   color: var(--accent);
   border: 1px solid var(--mid);
-  padding: 0.35rem 0.9rem;
+  padding: 0.5rem 1.2rem;    /* etwas mehr padding */
   border-radius: 3px;
   letter-spacing: 0.04em;
   transition: background 0.2s, color 0.2s;
@@ -203,7 +203,7 @@ nav a {
 
 .paper .venue {
   display: inline-block;
-  border: 1px solid var(--rule);
+  border: 1px solid var(--mid);   /* war: var(--rule) */
   padding: 0.35rem 0.9rem;
   border-radius: 3px;
   font-size: 0.82rem;
@@ -223,7 +223,14 @@ nav a {
     }
     .teaching-block ul { list-style: none; font-size: 0.96rem; }
     .teaching-block ul li { padding: 0.15rem 0; }
-    .teaching-block ul li::before { content: '→ '; color: var(--mid); }
+.teaching-block ul li::before { content: '→ '; color: var(--mid); }
+
+/* NEU — hier einfügen */
+.level {
+  font-size: 0.78rem;
+  color: var(--mid);
+  margin-left: 0.3rem;
+}
 
     /* ─── FIX 4: Contact — blauer Kasten ────────────────────── */
     .contact-box {
@@ -329,12 +336,18 @@ nav a {
     <div class="section-num">03</div>
     <h2>Teaching</h2>
     <div class="teaching-block">
-      <div class="inst">Universität Potsdam · 2022–Present</div>
-      <ul>
-       Introduction to Economics — Practical Sessions [Undergraduate]</li>
-       Education Economics — Practical Sessions [Undergraduate]</li>
-      </ul>
-    </div>
+  <div class="inst">Universität Potsdam · 2022–Present</div>
+  <ul>
+    <li>
+      Introduction to Economics
+      <span class="level">[Undergraduate]</span>
+    </li>
+    <li>
+      Education Economics
+      <span class="level">[Undergraduate]</span>
+    </li>
+  </ul>
+</div>
   </section>
 
   <!-- Contact -->
